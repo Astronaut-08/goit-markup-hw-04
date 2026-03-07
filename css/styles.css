@@ -12,10 +12,12 @@ img {
 
 .link {
     margin-right: 0;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .link.current {
     position: relative;
+    color: #404bbf;
 }
 
 .link.current::after {
@@ -27,6 +29,7 @@ img {
     height: 4px;
     background-color: #404BBF;
     border-radius: 2px;
+    bottom: -1px;
 }
 
 .container {
@@ -54,6 +57,10 @@ img {
     padding: 24px 156px;
     justify-content: center;
     border-bottom: 1px solid #E7E9FC;
+    box-shadow: 
+        0 2px 1px rgba(46, 47, 66, 0.08),
+        0 1px 1px rgba(46, 47, 66, 0.16),
+        0 1px 6px rgba(46, 47, 66, 0.08);
 }
 
 .top-bar-div {
@@ -65,7 +72,7 @@ img {
     gap: 40px;
 }
 
-.bar-nav-list .link {
+.nav-list .link.current{
     padding: 24px 0;
 }
 
@@ -141,7 +148,7 @@ ul {
 }
 
 .hero-section {
-    background:linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url(../images/people-office.png) center/cover no-repeat;
+    background:linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url(../images/people-office.png);
     font-weight: 700;
     font-size: 56px;
     line-height: 60px;
@@ -150,6 +157,9 @@ ul {
     padding: 188px 0;
     max-width: 1440px;
     height: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 .hero-section .container {
@@ -170,6 +180,7 @@ ul {
     height: 56px;
     border: none;
     border-radius: 4px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-button:hover,
@@ -180,6 +191,14 @@ ul {
 
 .feature-section {
     padding: 120px 0;
+}
+
+.feature-section .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 112px;
+    margin-bottom: 8px;
 }
 
 .feature-list {
@@ -274,11 +293,16 @@ ul {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.team-card-icon .link svg {
-    width: 16px;
-    height: 16px;
+.team-card-icon .link:hover,
+.team-card-icon .link:focus {
+    background-color: #404bbf;
+}
+
+.team-card-svg {
+    fill: #f4f4fd;
 }
 
 .title-card {
@@ -324,6 +348,7 @@ ul {
 
 .portfolio-card {
     width: calc((100% - 48px) / 3);
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-card-img {
@@ -336,27 +361,27 @@ ul {
     transform: translateY(0);
 }
 
+.portfolio-p-overlay {
+    transform: translateY(0%);
+    position: absolute;
+    top: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: #f4f4fd;
+    padding: 40px 32px;
+    background-color: #4d5ae5;
+    height: 100%;
+    width: 100%;
+    transform: translateY(100%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .portfolio-card:hover {
     box-shadow: 
         0 2px 1px rgba(46, 47, 66, 0.08),
         0 1px 1px rgba(46, 47, 66, 0.16),
         0 1px 6px rgba(46, 47, 66, 0.08);
-}
-
-.portfolio-overlay {
-    position: absolute;
-    background-color: #4D5AE5;
-    color: #F4F4FD;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: 2%;
-    transform: translateY(100%);
-    transition: 250ms ease;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding: 40px 32px;
 }
 
 .under-portfolio-card {
@@ -401,7 +426,10 @@ ul {
 .footer-section {
     background-color: #2E2F42;
     padding: 100px 156px;
-    display: flex;
+}
+
+.footer-description {
+    margin-right: 120px;
 }
 
 .footer-section .p-footer {
@@ -424,4 +452,9 @@ ul {
 .footer-social .team-card-icons .team-card-icon .link  svg {
     width: 24px;
     height: 24px;
+}
+
+.footer-all {
+    display: flex;
+    align-items: baseline;
 }
