@@ -14,6 +14,21 @@ img {
     margin-right: 0;
 }
 
+.link.current {
+    position: relative;
+}
+
+.link.current::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #404BBF;
+    border-radius: 2px;
+}
+
 .container {
     width: 1158px;
     margin: 0 auto;
@@ -97,9 +112,9 @@ ul {
     align-items: center;
 }
 
-.top-bar-nav:hover,
-.top-bar-nav:focus,
-.top-bar-nav:active{
+.nav-list:hover,
+.nav-list:focus,
+.nav-list:active {
     color: #404BBF;
 }
 
@@ -111,12 +126,6 @@ ul {
     color: #434455;
     display: flex;
     margin-left: auto;
-}
-
-.top-bar-contact:hover,
-.top-bar-contact:focus,
-.top-bar-contact:active{
-    color: #404BBF;
 }
 
 .contact-list {
@@ -132,14 +141,19 @@ ul {
 }
 
 .hero-section {
-    background-color: #2E2F42;
-    font-family: Roboto;
+    background:linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url(../images/people-office.png) center/cover no-repeat;
     font-weight: 700;
     font-size: 56px;
     line-height: 60px;
     text-align: center;
     color: #FFFFFF;
     padding: 188px 0;
+    max-width: 1440px;
+    height: auto;
+}
+
+.hero-section .container {
+    justify-items: center;
 }
 
 .hero-button {
@@ -175,6 +189,19 @@ ul {
 
 .feature-item {
     width: calc((100% - 72px) / 4);
+}
+
+.feature-icon {
+    width: 64px;
+    height: 64px;
+}
+
+.feature-icon-background {
+    background-color: #F4F4FD;
+    padding: 24px 100px;
+    border-radius: 4px;
+    border: 1px solid #8E8F99;
+    margin-bottom: 0;
 }
 
 .title-feature {
@@ -218,6 +245,10 @@ ul {
     width: calc(100% -72px) / 4;
     border-radius: 0 0 4px 4px;
     overflow: hidden;
+    box-shadow: 
+        0 2px 1px rgba(46, 47, 66, 0.08),
+        0 1px 1px rgba(46, 47, 66, 0.16),
+        0 1px 6px rgba(46, 47, 66, 0.08);
 }
 
 .team-card-under {
@@ -267,6 +298,39 @@ ul {
 
 .portfolio-card {
     width: calc((100% - 48px) / 3);
+}
+
+.portfolio-card-img {
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-card:hover .portfolio-card-img .portfolio-overlay,
+.portfolio-card:focus .portfolio-card-img .portfolio-overlay {
+    transform: translateY(0);
+}
+
+.portfolio-card:hover {
+    box-shadow: 
+        0 2px 1px rgba(46, 47, 66, 0.08),
+        0 1px 1px rgba(46, 47, 66, 0.16),
+        0 1px 6px rgba(46, 47, 66, 0.08);
+}
+
+.portfolio-overlay {
+    position: absolute;
+    background-color: #4D5AE5;
+    color: #F4F4FD;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 2%;
+    transform: translateY(100%);
+    transition: 250ms ease;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 40px 32px;
 }
 
 .under-portfolio-card {
